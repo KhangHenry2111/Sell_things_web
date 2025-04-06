@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Bán Sách</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body style="background-image: url(wood.png);">
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('books')">Sách</a></li>
+            <li><a href="#" onclick="showSection('cart')">Giỏ hàng</a></li>
+            <li><a href="#" onclick="showSection('orders')">Đơn hàng đã đặt</a></li>
+            <li><a href="#" onclick="showSection('upload')">Đăng sách</a></li>
+        </ul>
+        </nav>
+    <section id="books" class="section">
+        <h1 style="color: green;">Danh sách sách</h1>
+        <div id="book-display-section" class="book-display-section"></div>
+        <p id="no-books-message" style="display:none;">Không có sách thuộc thể loại này.</p>
+        <div class="search-and-filter">
+            <input type="text" id="search-input" placeholder="Tìm kiếm sách...">
+            <button onclick="searchBooks()">Tìm</button>
+
+            <select id="category-filter" onchange="filterBooksByCategory()">
+                <option value="all">Tất cả thể loại</option>
+                <option value="Khoa học">Khoa học</option>
+                <option value="Văn học">Văn học</option>
+                <option value="Kinh dị">Kinh dị</option>
+                <option value="Khác">Khác</option>
+            </select>
+
+            <button id="sort-asc" onclick="sortBooks('asc')">Giá tăng dần</button>
+            <button id="sort-desc" onclick="sortBooks('desc')">Giá giảm dần</button>
+        </div>
+    </section>
+
+    <section id="cart" class="section" style="display: none;">
+        <h1 style="color: green;">Thông tin giỏ hàng</h1>
+        <h2 style="color: green;">Sản phẩm đã chọn</h2>
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Mặt hàng số</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá 1 sản phẩm</th>
+                    <th>Tổng số tiền</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="total-section">
+            <h3 style="color: green;">Tổng số tiền: <span id="total-amount">0</span></h3>
+        </div>
+        <div>
+            <input type="text" id="customer-name" placeholder="Tên" required>
+            <input type="tel" id="customer-phone" placeholder="Số điện thoại" required>
+            <input type="text" id="customer-address" placeholder="Địa chỉ" required>
+            <button onclick="placeOrder()">Đặt hàng</button>
+        </div>
+    </section>
+
+    <section id="orders" class="section" style="display: none;">
+        <h1 style="color: green;">Đơn hàng đã đặt</h1>
+        <table id="order-table">
+            <thead>
+                <tr>
+                    <th>Mã số đơn hàng</th>
+                    <th>Thông tin đơn hàng</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="upload" class="section" style="display: none;">
+        <h1 style="color: green;">Đăng sách</h1>
+        <form id="upload-form" method="post" enctype="multipart/form-data" onsubmit="uploadBook(event)">
+            <input type="text" id="book-name" name="book-name" placeholder="Tên sản phẩm" required>
+            <select id="book-category-input" name="book-category-input" required>
+                <option value="">Chọn thể loại</option>
+                <option value="Khoa học">Khoa học</option>
+                <option value="Văn học">Văn học</option>
+                <option value="Kinh dị">Kinh dị</option>
+                <option value="Khác">Khác</option>
+            </select>
+            <input type="number" id="book-quantity" name="book-quantity" placeholder="Số lượng" required>
+            <input type="number" id="book-price" name="book-price" placeholder="Giá" required>
+            <input type="file" id="book-image" name="book-image" required>
+            <button type="submit" id="book-submit">Thêm sách mới</button>
+        </form>
+
+        <h2 style="color: green;">Sách đã đăng</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="color: green;">Tên sách</th>
+                    <th style="color: green;">Thể loại</th>
+                    <th style="color: green;">Số lượng</th>
+                    <th style="color: green;">Giá</th>
+                    <th style="color: green;">Ảnh</th>
+                    <th style="color: green;">Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="book-list"></tbody>
+        </table>
+    </section>
+
+    <script src="js.js"></script>
+</body>
+
+</html>

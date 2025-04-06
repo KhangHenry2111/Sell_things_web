@@ -1,0 +1,191 @@
+/* Đặt các kiểu chung cho toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: green;
+}
+/* Thiết lập thanh điều hướng */
+nav {
+    border-style: solid;
+    border-color: green;
+    background-color: brown;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Phần chung cho các section */
+.section {
+    padding: 20px;
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Phần tìm kiếm và sắp xếp sách */
+.search-and-filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-and-filter input,
+.search-and-filter select,
+.search-and-filter button {
+    margin: 0 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Phần hiển thị sách */
+.book-display-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.book-item {
+    background-color: white;
+    padding: 10px;
+    border: 5px solid green;
+    text-align: center;
+}
+
+.book-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.book-item p {
+    margin: 5px 0;
+}
+
+.book-item button {
+    background-color: #00ff55;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.book-item button:hover {
+    background-color: #00ff55;
+}
+
+/* Bảng hiển thị giỏ hàng và đơn hàng */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+/* Tổng tiền */
+#total-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#total-amount {
+    font-weight: bold;
+    color: #00ff55;
+}
+
+/* Form đăng sách */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form input,
+form select,
+form button {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+}
+
+form button {
+    background-color: #00ff55;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #00ff55;
+}
+
+/* Phần hiển thị sách đã đăng */
+table img {
+    width: 50px;
+    height: auto;
+}
+
+/* Thông điệp khi không có sách */
+#no-books-message {
+    text-align: center;
+    color: #00ff55;
+    font-size: 18px;
+}
+
+/* Định dạng cho thông tin sản phẩm đã đặt */
+.order-items {
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+#upload table tbody td {
+    border: 1px solid black;
+}
+#upload table {
+    background-color: white;
+}
+.book-item img {
+    max-width: 150px; 
+    height: auto;
+    margin-bottom: 10px;
+}
